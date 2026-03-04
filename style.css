@@ -216,8 +216,6 @@ body {
     overflow: hidden;
     position: relative;
     z-index: 100 !important;
-    opacity: 0;
-    transform: scale(0);
     /* Start hidden for GSAP to animate to life */
     transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
     cursor: pointer;
