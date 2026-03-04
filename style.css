@@ -206,8 +206,7 @@ body {
     width: 10vw;
     height: 6vw;
     flex-shrink: 0;
-    background-color: var(--brand-color);
-    /* Temporary bright color */
+    background-color: #f1f1f1;
     border-radius: 0.8vw;
     overflow: hidden;
     position: relative;
@@ -225,7 +224,7 @@ body {
 
 .hero-img-box:hover {
     transform: scale(1.15);
-    z-index: 10;
+    z-index: 100;
 }
 
 .hero-img-box:hover img {
@@ -243,10 +242,10 @@ body {
     margin-right: 1vw;
     border-radius: 0.5vw;
     background-color: var(--brand-color);
-    background-image: url('https://ochi.design/wp-content/uploads/2022/04/content-image01.jpg');
+    background-image: url('hero_4.png');
     background-size: cover;
     background-position: center;
-    margin-top: 1.5vw;
+    margin-top: 1vw;
 }
 
 .hero-footer {
