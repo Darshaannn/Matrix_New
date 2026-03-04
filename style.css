@@ -208,11 +208,17 @@ body {
 .hero-img-box {
     flex: 1;
     height: 100%;
-    background-color: #f1f1f1;
+    min-width: 15vw;
+    /* Ensure they are large */
+    background-color: #d1d1d1;
+    /* Shaded gray for visibility */
     border-radius: 1vw;
     overflow: hidden;
     position: relative;
     z-index: 10;
+    opacity: 1 !important;
+    /* Force visibility */
+    transform: scale(1) !important;
     transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
     cursor: pointer;
 }
