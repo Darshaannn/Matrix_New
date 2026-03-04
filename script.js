@@ -125,38 +125,38 @@ gsap.to(".marque-text h1", {
 function loaderAnimation() {
     const tl = gsap.timeline();
 
-    // Animate the image width in the hero
+    // Animate the inline image width
     tl.to(".hero-inline-image", {
         width: "9vw",
-        duration: 1,
-        ease: "power4.out",
-        delay: 0.2
-    }, "start");
+        duration: 1.2,
+        ease: "power4.inOut"
+    }, "reveal");
 
-    // Text reveal
+    // Reveal hero text
     tl.from(".hero-line h1", {
-        y: "100%",
+        y: 100,
         opacity: 0,
-        duration: 1,
+        duration: 1.2,
         ease: "power4.out",
         stagger: 0.1
-    }, "start");
+    }, "reveal");
 
+    // Reveal image boxes
     tl.to(".hero-img-box", {
         scale: 1,
         opacity: 1,
-        duration: 0.8,
-        ease: "back.out(1.7)",
-        stagger: 0.05
-    }, "start+=0.3");
+        duration: 1,
+        ease: "back.out(1.5)",
+        stagger: 0.08
+    }, "reveal+=0.4");
 
+    // Reveal hero footer
     tl.from(".hero-footer", {
-        y: 50,
+        y: 30,
         opacity: 0,
         duration: 1,
-        ease: "power3.out",
-        delay: 0.2
-    }, "start");
+        ease: "power3.out"
+    }, "reveal+=0.8");
 }
 
 window.addEventListener("load", () => {
