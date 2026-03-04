@@ -108,9 +108,9 @@ function loaderAnimation() {
         stagger: 0.1
     }, "start");
 
-    tl.from(".hero-img-box", {
-        scale: 0,
-        opacity: 0,
+    tl.to(".hero-img-box", {
+        scale: 1,
+        opacity: 1,
         duration: 0.8,
         ease: "back.out(1.7)",
         stagger: 0.05

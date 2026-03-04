@@ -178,8 +178,11 @@ body {
 .hero-line {
     display: flex;
     align-items: center;
-    gap: 1.5vw;
+    gap: 2vw;
     width: fit-content;
+    position: relative;
+    overflow: visible !important;
+    /* Force no clipping */
 }
 
 .hero-line h1 {
@@ -207,10 +210,15 @@ body {
     height: 6vw;
     flex-shrink: 0;
     background-color: #f1f1f1;
+    border: 2px solid var(--brand-color);
+    /* Debug border */
     border-radius: 0.8vw;
     overflow: hidden;
     position: relative;
-    z-index: 50;
+    z-index: 100 !important;
+    opacity: 0;
+    transform: scale(0);
+    /* Start hidden for GSAP to animate to life */
     transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
     cursor: pointer;
 }
