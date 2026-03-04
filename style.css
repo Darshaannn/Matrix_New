@@ -1243,7 +1243,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     border-radius: 2vw;
-    overflow: hidden;
+    /* Removed overflow:hidden to prevent clipping cards */
     box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
     background: #e8e6e1;
 }
@@ -1251,6 +1251,8 @@ body {
 .city-map {
     width: 100%;
     display: block;
+    border-radius: 2vw;
+    /* Ensure map image itself still follows radius */
 }
 
 .map-pin {
@@ -1278,6 +1280,7 @@ body {
 .industry-card {
     position: absolute;
     bottom: 120%;
+    /* Default placement: Above */
     left: 50%;
     transform: translateX(-50%) translateY(15px);
     width: 300px;
@@ -1293,6 +1296,24 @@ body {
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
     z-index: 300;
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Smart repositioning for pins near the top to prevent clipping */
+.map-pin[style*="top: 1"],
+.map-pin[style*="top: 2"] {
+    /* If top is 1-something % or 2-something %, show below the pin */
+}
+
+.map-pin[style*="top: 1"] .industry-card,
+.map-pin[style*="top: 2"] .industry-card {
+    top: 120%;
+    bottom: auto;
+    transform: translateX(-50%) translateY(-15px);
+}
+
+.map-pin[style*="top: 1"]:hover .industry-card,
+.map-pin[style*="top: 2"]:hover .industry-card {
+    transform: translateX(-50%) translateY(0);
 }
 
 .map-pin:hover .industry-card {
