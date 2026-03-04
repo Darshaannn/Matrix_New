@@ -1299,11 +1299,6 @@ body {
 }
 
 /* Smart repositioning for pins near the top to prevent clipping */
-.map-pin[style*="top: 1"],
-.map-pin[style*="top: 2"] {
-    /* If top is 1-something % or 2-something %, show below the pin */
-}
-
 .map-pin[style*="top: 1"] .industry-card,
 .map-pin[style*="top: 2"] .industry-card {
     top: 120%;
@@ -1323,9 +1318,9 @@ body {
 }
 
 /* Logic to prevent card overflow on sides */
-.map-pin[style*="left: 1"],
+.map-pin[style*="left: 1"] .industry-card,
 .map-pin[style*="left: 2"] .industry-card {
-    left: -20px;
+    left: 20px;
     transform: translateX(0) translateY(15px);
 }
 
@@ -1334,11 +1329,11 @@ body {
     transform: translateX(0) translateY(0);
 }
 
-.map-pin[style*="left: 7"],
-.map-pin[style*="left: 8"],
+.map-pin[style*="left: 7"] .industry-card,
+.map-pin[style*="left: 8"] .industry-card,
 .map-pin[style*="left: 9"] .industry-card {
     left: auto;
-    right: -20px;
+    right: 20px;
     transform: translateX(0) translateY(15px);
 }
 
