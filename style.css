@@ -101,14 +101,17 @@ body {
 /* Navigation */
 #nav {
     width: 100%;
-    padding: 2vw 4vw;
+    padding: 1.5vw 4vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: fixed;
     top: 0;
     z-index: 999;
-    mix-blend-mode: difference;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     color: #fff;
 }
 
