@@ -94,8 +94,8 @@ function initHeroHover() {
                 scale: 1,
                 rotateX: 0,
                 rotateY: 0,
-                duration: 0.8,
-                ease: "elastic.out(1, 0.3)",
+                duration: 1.5, // Slower return
+                ease: "expo.out", // Smoother settling
                 overwrite: "auto"
             });
         });
