@@ -272,10 +272,44 @@ function initIndustryCity() {
     });
 }
 
+// --- Eye Tracking Logic ---
+function initEyeTracking() {
+    window.addEventListener("mousemove", (e) => {
+        let mouseX = e.clientX;
+        let mouseY = e.clientY;
+
+        let deltaX = mouseX - window.innerWidth / 2;
+        let deltaY = mouseY - window.innerHeight / 2;
+
+        var angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
+
+        // This works for simple cases, but for multiple eyes across the page,
+        // it's better to calculate relative to each eye center.
+        document.querySelectorAll(".eye .line").forEach(line => {
+            // Get eye center to be more precise
+            const rect = line.closest('.eye').getBoundingClientRect();
+            const eyeX = rect.left + rect.width / 2;
+            const eyeY = rect.top + rect.height / 2;
+
+            const dX = mouseX - eyeX;
+            const dY = mouseY - eyeY;
+            const eyeAngle = Math.atan2(dY, dX) * (180 / Math.PI);
+
+            gsap.to(line, {
+                rotate: eyeAngle - 180,
+                duration: 0.2,
+                ease: "power2.out"
+            });
+        });
+    });
+}
+
 // Global Initialize
 window.addEventListener("load", function () {
     initLocomotive();
     loaderAnimation();
     cursorEffect();
     initIndustryCity();
+    initEyeTracking();
+    initHeroHover();
 });
