@@ -173,6 +173,8 @@ body {
 .hero-text-container {
     display: flex;
     flex-direction: column;
+    gap: 1vw;
+    /* Added vertical spacing */
 }
 
 .hero-line {
