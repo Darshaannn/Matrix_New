@@ -163,25 +163,6 @@ body {
 
 .hero-content {
     padding: 0 4vw;
-    position: relative;
-    z-index: 2;
-}
-
-.hero-image-right {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50vw;
-    height: 80vh;
-    background-image: url('image.png');
-    background-size: cover;
-    background-position: left center;
-    z-index: -1;
-    border-radius: 2vw;
-    /* Stepped cutout to clear the "WE PROVIDE" line */
-    clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%, 0 35%, 25% 35%);
-    opacity: 1;
-    transition: all 0.5s ease;
 }
 
 .hero-text-container {
@@ -199,13 +180,54 @@ body {
 
 .hero-line h1 {
     font-family: 'Oswald', sans-serif;
-    font-size: 11vw;
-    /* Much larger */
+    font-size: 9.5vw;
+    line-height: 0.9;
     font-weight: 700;
     text-transform: uppercase;
-    line-height: 0.75;
+    white-space: nowrap;
     letter-spacing: -0.4vw;
     color: var(--text-color);
+}
+
+.hero-line {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    width: fit-content;
+}
+
+.hero-box-group {
+    display: flex;
+    gap: 1vw;
+    align-items: center;
+    margin-left: 2vw;
+}
+
+.hero-img-box {
+    width: 12vw;
+    height: 7vw;
+    background-color: #f1f1f1;
+    border-radius: 0.8vw;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    cursor: pointer;
+}
+
+.hero-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.hero-img-box:hover {
+    transform: scale(1.15);
+    z-index: 10;
+}
+
+.hero-img-box:hover img {
+    transform: scale(1.1);
 }
 
 .has-image {
