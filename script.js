@@ -53,7 +53,7 @@ window.addEventListener("mousemove", (e) => {
 });
 
 // Hover scale effect for links and buttons
-const interactables = document.querySelectorAll("a, .btn, .icon, .hero-inline-image, .read-more-btn, .image-content, .card-btn, .tag");
+const interactables = document.querySelectorAll("a, .btn, .icon, .hero-inline-image, .hero-img-box, .read-more-btn, .image-content, .card-btn, .tag");
 interactables.forEach(item => {
     item.addEventListener("mouseenter", () => {
         cursor.classList.add("active");
@@ -106,6 +106,14 @@ function loaderAnimation() {
         ease: "power4.out",
         stagger: 0.1
     }, "start");
+
+    tl.from(".hero-img-box", {
+        scale: 0,
+        opacity: 0,
+        duration: 0.8,
+        ease: "back.out(1.7)",
+        stagger: 0.05
+    }, "start+=0.3");
 
     tl.from(".hero-footer", {
         y: 50,

@@ -173,9 +173,8 @@ body {
 .hero-line {
     display: flex;
     align-items: center;
-    overflow: hidden;
-    height: 9vw;
-    /* Tighter line height */
+    gap: 1.5vw;
+    width: fit-content;
 }
 
 .hero-line h1 {
@@ -189,12 +188,7 @@ body {
     color: var(--text-color);
 }
 
-.hero-line {
-    display: flex;
-    align-items: center;
-    gap: 1vw;
-    width: fit-content;
-}
+
 
 .hero-box-group {
     display: flex;
