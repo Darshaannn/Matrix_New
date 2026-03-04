@@ -82,7 +82,7 @@ projectCards.forEach(card => {
 gsap.to(".marque-text h1", {
     x: "-100%",
     repeat: -1,
-    duration: 5,
+    duration: 15, // Slowed down from 5s for better readability
     ease: "none",
 });
 
