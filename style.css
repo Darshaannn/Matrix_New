@@ -191,27 +191,26 @@ body {
 
 .hero-line h1 {
     font-family: 'Oswald', sans-serif;
-    font-size: 8.5vw;
-    /* Increased size for impact */
-    line-height: 0.9;
+    font-size: 7.5vw;
+    line-height: 1;
     font-weight: 700;
     text-transform: uppercase;
     white-space: nowrap;
     letter-spacing: -0.2vw;
     color: var(--text-color);
-    position: relative;
-    z-index: 1;
 }
 
 
 
 .hero-box-group {
     display: flex;
-    gap: 1.5vw;
+    gap: 3vw;
+    /* Larger gap between images */
     align-items: center;
-    height: 6vw;
-    /* Stable height */
+    flex: 1;
+    height: 8vw;
     margin-left: 2vw;
+    /* Gap from the text */
 }
 
 .hero-img-box {
@@ -225,11 +224,8 @@ body {
     z-index: 10;
     opacity: 0;
     transform: scale(0);
-    transition: box-shadow 0.4s ease, z-index 0.4s ease;
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
     cursor: pointer;
-    transform-style: preserve-3d;
-    /* Enable 3D for tilt */
-    will-change: transform, box-shadow;
 }
 
 .hero-img-box img {
@@ -238,11 +234,13 @@ body {
     object-fit: cover;
     pointer-events: none;
     /* Let box handle events */
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .hero-img-box:hover {
+    transform: scale(2);
     z-index: 9999;
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
 }
 
 .has-image {

@@ -58,46 +58,6 @@ function initCursor() {
     });
 }
 
-// --- Premium Hero Image Hover Expansion & Tilt ---
-function initHeroHover() {
-    const heroBoxes = document.querySelectorAll(".hero-img-box");
-
-    heroBoxes.forEach(box => {
-        box.addEventListener("mousemove", (e) => {
-            const rect = box.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            // Calculate tilt based on mouse position (max 15 degrees)
-            const xCenter = rect.width / 2;
-            const yCenter = rect.height / 2;
-            const xRotation = ((y - yCenter) / yCenter) * -15;
-            const yRotation = ((x - xCenter) / xCenter) * 15;
-
-            gsap.to(box, {
-                scale: 2, // 2X Expansion as requested
-                rotateX: xRotation,
-                rotateY: yRotation,
-                duration: 0.6,
-                ease: "power2.out",
-                overwrite: "auto"
-            });
-        });
-
-        box.addEventListener("mouseleave", () => {
-            gsap.to(box, {
-                scale: 1,
-                rotateX: 0,
-                rotateY: 0,
-                duration: 1.5, // Slower return
-                ease: "expo.out", // Smoother settling
-                overwrite: "auto"
-            });
-        });
-    });
-}
-initHeroHover();
-
 // Advanced cursor for Project Cards
 const projectCards = document.querySelectorAll(".card");
 const cursorText = document.querySelector(".cursor-text");
@@ -125,38 +85,38 @@ gsap.to(".marque-text h1", {
 function loaderAnimation() {
     const tl = gsap.timeline();
 
-    // Animate the inline image width
+    // Animate the image width in the hero
     tl.to(".hero-inline-image", {
         width: "9vw",
-        duration: 1.2,
-        ease: "power4.inOut"
-    }, "reveal");
+        duration: 1,
+        ease: "power4.out",
+        delay: 0.2
+    }, "start");
 
-    // Reveal hero text
+    // Text reveal
     tl.from(".hero-line h1", {
-        y: 100,
+        y: "100%",
         opacity: 0,
-        duration: 1.2,
+        duration: 1,
         ease: "power4.out",
         stagger: 0.1
-    }, "reveal");
+    }, "start");
 
-    // Reveal image boxes
     tl.to(".hero-img-box", {
         scale: 1,
         opacity: 1,
-        duration: 1,
-        ease: "back.out(1.5)",
-        stagger: 0.08
-    }, "reveal+=0.4");
+        duration: 0.8,
+        ease: "back.out(1.7)",
+        stagger: 0.05
+    }, "start+=0.3");
 
-    // Reveal hero footer
     tl.from(".hero-footer", {
-        y: 30,
+        y: 50,
         opacity: 0,
         duration: 1,
-        ease: "power3.out"
-    }, "reveal+=0.8");
+        ease: "power3.out",
+        delay: 0.2
+    }, "start");
 }
 
 window.addEventListener("load", () => {
