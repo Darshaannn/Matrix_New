@@ -248,13 +248,20 @@ body {
     align-items: center;
 }
 
+.ochi-logo-text {
+    font-family: 'Anton', sans-serif;
+    font-size: 2vw;
+    font-weight: 700;
+    text-transform: lowercase;
+    letter-spacing: -1px;
+}
+
 .hero-inline-image {
     width: 0;
     height: 7vw;
     margin-right: 1vw;
     border-radius: 0.5vw;
-    background-color: var(--brand-color);
-    background-image: url('hero_4.png');
+    background-image: url('C:/Users/admin/.gemini/antigravity/brain/585d6aae-b86f-47db-9801-372b81f42e94/ochi_geometric_inline_1772623290861.png');
     background-size: cover;
     background-position: center;
     margin-top: 1vw;
