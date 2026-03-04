@@ -88,7 +88,6 @@ gsap.to(".marque-text h1", {
 
 // --- Entry Animations ---
 function loaderAnimation() {
-    console.log("Starting Loader Animation. Boxes found:", document.querySelectorAll(".hero-img-box").length);
     const tl = gsap.timeline();
 
     // Animate the image width in the hero
