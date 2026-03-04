@@ -148,6 +148,8 @@ const revealElements = [
     ".projects-header h2",
     ".reviews-header h2",
     ".review-row",
+    ".why-header h1",
+    ".why-item",
     ".ready-text h1",
     ".ready-btn-container",
     ".footer-left h1",

@@ -636,6 +636,130 @@ body {
     background-color: #000;
 }
 
+/* --- Why Barter Section --- */
+#why-barter {
+    width: 100%;
+    min-height: 80vh;
+    background-color: #212121;
+    color: white;
+    padding: 10vw 4vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.why-header h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 15vw;
+    font-weight: 700;
+    line-height: 0.8;
+    margin-bottom: 5vw;
+}
+
+.why-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 4vw;
+}
+
+.why-item {
+    flex: 1;
+    padding: 2.5vw;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vw;
+    transition: all 0.3s ease;
+}
+
+.why-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--brand-color);
+}
+
+.why-num {
+    font-size: 1vw;
+    font-family: 'Inter', sans-serif;
+    opacity: 0.6;
+}
+
+.why-item h3 {
+    font-size: 2vw;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
+
+.why-item p {
+    font-size: 1.1vw;
+    line-height: 1.4;
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+/* --- Barter Services Section --- */
+#barter-services {
+    width: 100%;
+    padding: 10vw 4vw;
+    background-color: var(--bg-color);
+}
+
+.services-header h2 {
+    font-size: 3.5vw;
+    font-weight: 400;
+    margin-bottom: 5vw;
+}
+
+.services-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 2vw;
+}
+
+.service-col {
+    flex: 1;
+    padding: 3vw;
+    border-radius: 1vw;
+    background-color: #f6f6f6;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vw;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-col::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--brand-color);
+    transition: width 0.3s ease;
+    z-index: 1;
+}
+
+.service-col:hover::after {
+    width: 0.5vw;
+}
+
+.col-icon {
+    font-size: 3vw;
+    color: var(--brand-color);
+}
+
+.service-col h3 {
+    font-size: 1.8vw;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
+
+.service-col p {
+    font-size: 1vw;
+    font-weight: 400;
+    opacity: 0.7;
+}
+
 /* Clients Reviews */
 #reviews {
     width: 100%;
