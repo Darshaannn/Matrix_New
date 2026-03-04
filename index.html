@@ -535,33 +535,51 @@
             </div>
         </section>
 
-        <!-- Ready To Start Section -->
-        <section id="ready" data-scroll data-scroll-speed="-0.1">
-            <div class="ready-text">
-                <h1>READY</h1>
-                <h1>TO START</h1>
-                <h1>THE PROJECT?</h1>
+        <!-- Barter City Map Section -->
+        <section id="barter-city" data-scroll>
+            <div class="map-header">
+                <div class="badge">
+                    <div class="dot"></div>
+                    <span>INTERACTIVE ECOSYSTEM</span>
+                </div>
+                <h2>Explore Our Industry <span>Barter City</span></h2>
+                <p>Hover or tap on a location to discover how barter works in each industry.</p>
             </div>
 
-            <div class="ready-eyes">
-                <div class="eye">
-                    <div class="pupil">
-                        <div class="line">
-                            <div class="pupil-dot"></div>
+            <div class="map-container">
+                <div class="map-wrapper">
+                    <img src="NewCityMap2.png" alt="Matrix Barter City" class="map-img">
+                    <div class="pins-layer">
+                        <!-- Pins will be injected by JS or hardcoded for absolute control -->
+                        <div class="pin" data-industry="automobile" style="top: 22%; left: 34%;">
+                            <div class="pin-icon"><i class="ri-map-pin-fill"></i></div>
+                            <div class="pin-label">AUTOMOBILE</div>
+                        </div>
+                        <div class="pin" data-industry="fmcg" style="top: 28%; left: 18%;">
+                            <div class="pin-icon"><i class="ri-map-pin-fill"></i></div>
+                            <div class="pin-label">FMCG</div>
+                        </div>
+                        <div class="pin" data-industry="lifestyle" style="top: 42%; left: 63%;">
+                            <div class="pin-icon"><i class="ri-map-pin-fill"></i></div>
+                            <div class="pin-label">LIFESTYLE & CLOTHING</div>
+                        </div>
+                        <div class="pin" data-industry="consumer-durables" style="top: 70%; left: 26%;">
+                            <div class="pin-icon"><i class="ri-map-pin-fill"></i></div>
+                            <div class="pin-label">CONSUMER DURABLES</div>
+                        </div>
+                        <div class="pin" data-industry="media" style="top: 68%; left: 67%;">
+                            <div class="pin-icon"><i class="ri-map-pin-fill"></i></div>
+                            <div class="pin-label">MEDIA NETWORKS</div>
+                        </div>
+                        <div class="pin" data-industry="hospitality" style="top: 15%; left: 75%;">
+                            <div class="pin-icon"><i class="ri-map-pin-fill"></i></div>
+                            <div class="pin-label">HOSPITALITY & GAMING</div>
                         </div>
                     </div>
-                </div>
-                <div class="eye">
-                    <div class="pupil">
-                        <div class="line">
-                            <div class="pupil-dot"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="ready-btn-container">
-                <button class="start-btn">START THE PROJECT <div class="dot"></div></button>
+                    <!-- Industry Card Container -->
+                    <div id="industry-card-container"></div>
+                </div>
             </div>
         </section>
 
