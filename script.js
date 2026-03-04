@@ -209,23 +209,33 @@ gsap.from(".card-large, .card-small", {
     ease: "power3.out"
 });
 
-// --- Eyes Follow Math (Supports multiple eye groups) ---
-window.addEventListener("mousemove", (e) => {
-    let mouseX = e.clientX;
-    let mouseY = e.clientY;
-
-    document.querySelectorAll(".eye").forEach(eye => {
-        let eyeRect = eye.getBoundingClientRect();
-        let eyeCenterX = eyeRect.left + eyeRect.width / 2;
-        let eyeCenterY = eyeRect.top + eyeRect.height / 2;
-
-        let deltaX = mouseX - eyeCenterX;
-        let deltaY = mouseY - eyeCenterY;
-
-        let angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
-        let line = eye.querySelector(".line");
-        if (line) {
-            line.style.transform = `translate(-50%, -50%) rotate(${angle - 180}deg)`;
+// --- Industry City Interactions ---
+function initIndustryCity() {
+    document.querySelectorAll('.map-pin').forEach(pin => {
+        // Handle Redirects when clicking the button
+        const btn = pin.querySelector('.learn-more');
+        if (btn) {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                window.location.href = pin.dataset.link;
+            });
         }
+
+        // Mobile Tap Support
+        pin.addEventListener('touchstart', function (e) {
+            const allPins = document.querySelectorAll('.map-pin');
+            allPins.forEach(p => {
+                if (p !== pin) p.classList.remove('active');
+            });
+            pin.classList.toggle('active');
+        }, { passive: true });
     });
+}
+
+// Global Initialize
+window.addEventListener("load", function () {
+    initLocomotive();
+    loaderAnimation();
+    cursorEffect();
+    initIndustryCity();
 });
