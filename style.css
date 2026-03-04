@@ -121,9 +121,6 @@ body {
     letter-spacing: -1px;
 }
 
-fill: #fff;
-mix-blend-mode: difference;
-}
 
 #nav .links {
     display: flex;
