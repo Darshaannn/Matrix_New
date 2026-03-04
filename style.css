@@ -235,8 +235,9 @@ body {
 }
 
 .hero-img-box:hover {
-    transform: scale(1.15);
-    z-index: 100;
+    transform: scale(2);
+    z-index: 1000;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
 
 .hero-img-box:hover img {
