@@ -17,7 +17,16 @@ const locoScroll = new LocomotiveScroll({
 });
 
 // Sync Locomotive Scroll with GSAP ScrollTrigger
-locoScroll.on("scroll", ScrollTrigger.update);
+locoScroll.on("scroll", (args) => {
+    ScrollTrigger.update();
+
+    const nav = document.querySelector("#nav");
+    if (args.direction === "down" && args.scroll.y > 100) {
+        nav.classList.add("nav-hide");
+    } else if (args.direction === "up") {
+        nav.classList.remove("nav-hide");
+    }
+});
 
 ScrollTrigger.scrollerProxy("#main", {
     scrollTop(value) {

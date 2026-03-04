@@ -113,6 +113,11 @@ body {
     -webkit-backdrop-filter: blur(15px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     color: #fff;
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+#nav.nav-hide {
+    transform: translateY(-100%);
 }
 
 #nav .logo .matrix-logo {
