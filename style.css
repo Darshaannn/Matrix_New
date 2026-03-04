@@ -108,20 +108,19 @@ body {
     position: fixed;
     top: 0;
     z-index: 999;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    color: #fff;
+    background: transparent;
+    /* Clean transparent bg */
+    color: var(--text-color);
+    /* Use black text */
 }
 
 #nav .logo .matrix-logo {
-    font-family: 'Anton', sans-serif;
-    font-size: 2.2vw;
-    text-transform: uppercase;
-    font-weight: 400;
-    color: #fff;
-    letter-spacing: -1px;
+    font-family: 'Inter', sans-serif;
+    font-size: 2vw;
+    text-transform: lowercase;
+    font-weight: 700;
+    color: var(--text-color);
+    letter-spacing: -0.1vw;
 }
 
 
@@ -133,7 +132,7 @@ body {
 
 #nav .links a {
     text-decoration: none;
-    color: #fff;
+    color: var(--text-color);
     font-size: 1vw;
     font-weight: 400;
     position: relative;
@@ -163,7 +162,8 @@ body {
 #hero {
     width: 100%;
     min-height: 100vh;
-    padding-top: 25vh;
+    padding-top: 20vh;
+    /* Shifted up from 25vh */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -190,13 +190,14 @@ body {
 }
 
 .hero-line h1 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 7.5vw;
-    line-height: 1;
-    font-weight: 700;
+    font-family: 'Anton', sans-serif;
+    /* Using Anton for thick, tight look like ochi */
+    font-size: 8.5vw;
+    line-height: 0.8;
+    font-weight: 400;
     text-transform: uppercase;
     white-space: nowrap;
-    letter-spacing: -0.2vw;
+    letter-spacing: -0.1vw;
     color: var(--text-color);
 }
 
@@ -1159,13 +1160,37 @@ body {
     width: 100%;
 }
 
-.footer-bottom {
-    width: 100%;
+/* W. Badge Styling */
+.w-badge {
+    position: fixed;
+    top: 30vh;
+    right: 0;
+    background-color: #f04236;
+    color: white;
+    padding: 1vw;
+    z-index: 9999;
+    font-family: 'Inter', sans-serif;
+    border-top-left-radius: 0.5vw;
+    border-bottom-left-radius: 0.5vw;
+}
+
+.w-badge-inner {
     display: flex;
-    justify-content: space-between;
-    margin-top: 10vw;
-    padding-top: 2vw;
-    font-size: 1vw;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5vw;
+}
+
+.w-badge-inner span {
+    font-size: 1.5vw;
+    font-weight: 700;
+}
+
+.w-badge-inner p {
+    font-size: 0.7vw;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
 }
 
 /* Industry Barter City */
