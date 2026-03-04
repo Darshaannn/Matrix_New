@@ -112,9 +112,17 @@ body {
     color: #fff;
 }
 
-#nav .logo svg {
-    fill: #fff;
-    mix-blend-mode: difference;
+#nav .logo .matrix-logo {
+    font-family: 'Anton', sans-serif;
+    font-size: 2.2vw;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: -1px;
+}
+
+fill: #fff;
+mix-blend-mode: difference;
 }
 
 #nav .links {
