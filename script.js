@@ -163,9 +163,9 @@ const revealElements = [
     ".footer-left h1",
     ".footer-right h1",
     ".footer-info",
-    ".footer-bottom",
-    "#barter-city .map-header h2",
-    "#barter-city .map-container"
+    ".footer-bottom"
+    // "#barter-city .map-header h2", // Temporarily disabled for diagnostic
+    // "#barter-city .map-container"
 ];
 
 revealElements.forEach(selector => {
@@ -314,4 +314,12 @@ function showIndustryCard(data) {
 // Initialize on load
 window.addEventListener('load', () => {
     initMapInteractivity();
+
+    // Explicitly update Locomotive Scroll once assets are loaded
+    if (typeof locoScroll !== 'undefined') {
+        setTimeout(() => {
+            locoScroll.update();
+            console.log("Locomotive Scroll Updated for Barter City Map");
+        }, 500);
+    }
 });

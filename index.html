@@ -15,11 +15,16 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=Oswald:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Main CSS with Cache Busting -->
+    <link rel="stylesheet" href="style.css?v=20260304-1509">
 </head>
 
 <body>
+    <!-- DIAGNOSTIC BANNER (Delete after confirm) -->
+    <div id="diagnostic-banner"
+        style="position:fixed; top:0; left:50%; transform:translateX(-50%); background:red; color:white; padding:5px 20px; z-index:99999; font-family:sans-serif; font-weight:bold; border-radius:0 0 10px 10px; pointer-events:none;">
+        FILE VERSION: BARTER CITY (15:09)
+    </div>
 
     <!-- Red Badge (Site of the Day) -->
     <div class="w-badge">
@@ -634,8 +639,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
 
-    <!-- Main JS -->
-    <script src="script.js"></script>
+    <!-- Main JS with Cache Busting -->
+    <script src="script.js?v=20260304-1509"></script>
 </body>
 
 </html>
