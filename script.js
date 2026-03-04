@@ -31,37 +31,32 @@ ScrollTrigger.scrollerProxy("#main", {
 
 ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 
-// Manual check to refresh after short delay (letting DOM settle)
-window.addEventListener("load", () => {
-    setTimeout(() => {
-        locoScroll.update();
-        ScrollTrigger.refresh();
-    }, 500);
-});
 
 // --- Cursor Logic ---
-const cursor = document.querySelector("#cursor");
+function initCursor() {
+    const cursor = document.querySelector("#cursor");
 
-window.addEventListener("mousemove", (e) => {
-    // We adjust x and y to align center of cursor
-    gsap.to(cursor, {
-        x: e.clientX - cursor.offsetWidth / 2,
-        y: e.clientY - cursor.offsetHeight / 2,
-        duration: 0.1,
-        ease: "power2.out"
+    window.addEventListener("mousemove", (e) => {
+        // We adjust x and y to align center of cursor
+        gsap.to(cursor, {
+            x: e.clientX - cursor.offsetWidth / 2,
+            y: e.clientY - cursor.offsetHeight / 2,
+            duration: 0.1,
+            ease: "power2.out"
+        });
     });
-});
 
-// Hover scale effect for links and buttons
-const interactables = document.querySelectorAll("a, .btn, .icon, .hero-inline-image, .read-more-btn, .image-content, .card-btn, .tag");
-interactables.forEach(item => {
-    item.addEventListener("mouseenter", () => {
-        cursor.classList.add("active");
+    // Hover scale effect for links and buttons
+    const interactables = document.querySelectorAll("a, .btn, .icon, .hero-inline-image, .read-more-btn, .image-content, .card-btn, .tag");
+    interactables.forEach(item => {
+        item.addEventListener("mouseenter", () => {
+            cursor.classList.add("active");
+        });
+        item.addEventListener("mouseleave", () => {
+            cursor.classList.remove("active");
+        });
     });
-    item.addEventListener("mouseleave", () => {
-        cursor.classList.remove("active");
-    });
-});
+}
 
 // --- Premium Hero Image Hover Expansion & Tilt ---
 function initHeroHover() {
@@ -306,9 +301,14 @@ function initEyeTracking() {
 
 // Global Initialize
 window.addEventListener("load", function () {
-    initLocomotive();
+    // Refresh Locomotive and ScrollTrigger first
+    setTimeout(() => {
+        locoScroll.update();
+        ScrollTrigger.refresh();
+    }, 500);
+
     loaderAnimation();
-    cursorEffect();
+    initCursor();
     initIndustryCity();
     initEyeTracking();
     initHeroHover();
