@@ -217,35 +217,31 @@ body {
     flex: 1;
     height: 100%;
     min-width: 15vw;
-    /* Ensure they are large */
     background-color: #d1d1d1;
-    /* Shaded gray for visibility */
     border-radius: 1vw;
     overflow: hidden;
     position: relative;
     z-index: 10;
     opacity: 0;
     transform: scale(0);
-    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: box-shadow 0.4s ease, z-index 0.4s ease;
     cursor: pointer;
+    transform-style: preserve-3d;
+    /* Enable 3D for tilt */
+    will-change: transform, box-shadow;
 }
 
 .hero-img-box img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    pointer-events: none;
+    /* Let box handle events */
 }
 
 .hero-img-box:hover {
-    transform: scale(2);
     z-index: 9999;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hero-img-box:hover img {
-    transform: scale(1.1);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
 }
 
 .has-image {

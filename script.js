@@ -63,6 +63,46 @@ interactables.forEach(item => {
     });
 });
 
+// --- Premium Hero Image Hover Expansion & Tilt ---
+function initHeroHover() {
+    const heroBoxes = document.querySelectorAll(".hero-img-box");
+
+    heroBoxes.forEach(box => {
+        box.addEventListener("mousemove", (e) => {
+            const rect = box.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Calculate tilt based on mouse position (max 15 degrees)
+            const xCenter = rect.width / 2;
+            const yCenter = rect.height / 2;
+            const xRotation = ((y - yCenter) / yCenter) * -15;
+            const yRotation = ((x - xCenter) / xCenter) * 15;
+
+            gsap.to(box, {
+                scale: 2, // 2X Expansion as requested
+                rotateX: xRotation,
+                rotateY: yRotation,
+                duration: 0.6,
+                ease: "power2.out",
+                overwrite: "auto"
+            });
+        });
+
+        box.addEventListener("mouseleave", () => {
+            gsap.to(box, {
+                scale: 1,
+                rotateX: 0,
+                rotateY: 0,
+                duration: 0.8,
+                ease: "elastic.out(1, 0.3)",
+                overwrite: "auto"
+            });
+        });
+    });
+}
+initHeroHover();
+
 // Advanced cursor for Project Cards
 const projectCards = document.querySelectorAll(".card");
 const cursorText = document.querySelector(".cursor-text");
