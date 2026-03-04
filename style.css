@@ -163,6 +163,25 @@ body {
 
 .hero-content {
     padding: 0 4vw;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-image-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50vw;
+    height: 80vh;
+    background-image: url('image.png');
+    background-size: cover;
+    background-position: left center;
+    z-index: -1;
+    border-radius: 2vw;
+    /* Stepped cutout to clear the "WE PROVIDE" line */
+    clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%, 0 35%, 25% 35%);
+    opacity: 1;
+    transition: all 0.5s ease;
 }
 
 .hero-text-container {
