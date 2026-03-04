@@ -1169,40 +1169,6 @@ body {
     font-size: 1vw;
 }
 
-/* W. Badge Styling */
-.w-badge {
-    position: fixed;
-    top: 30vh;
-    right: 0;
-    background-color: #f04236;
-    color: white;
-    padding: 1vw;
-    z-index: 9999;
-    font-family: 'Inter', sans-serif;
-    border-top-left-radius: 0.5vw;
-    border-bottom-left-radius: 0.5vw;
-}
-
-.w-badge-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5vw;
-}
-
-.w-badge span {
-    font-size: 1.5vw;
-    font-weight: 700;
-}
-
-.w-badge p {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    transform: rotate(180deg);
-    font-size: 0.8vw;
-    letter-spacing: 0.1vw;
-}
-
 /* Industry Barter City */
 #industry-city {
     width: 100%;
