@@ -107,13 +107,13 @@ function loaderAnimation() {
         stagger: 0.1
     }, "start");
 
-    /* tl.to(".hero-img-box", {
+    tl.to(".hero-img-box", {
         scale: 1,
         opacity: 1,
         duration: 0.8,
         ease: "back.out(1.7)",
         stagger: 0.05
-    }, "start+=0.3"); */
+    }, "start+=0.3");
 
     tl.from(".hero-footer", {
         y: 50,
