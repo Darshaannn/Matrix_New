@@ -201,10 +201,12 @@ body {
     width: 10vw;
     height: 6vw;
     flex-shrink: 0;
-    background-color: #f1f1f1;
+    background-color: var(--brand-color);
+    /* Temporary bright color */
     border-radius: 0.8vw;
     overflow: hidden;
     position: relative;
+    z-index: 50;
     transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
     cursor: pointer;
 }
