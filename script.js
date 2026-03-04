@@ -164,8 +164,6 @@ const revealElements = [
     ".footer-right h1",
     ".footer-info",
     ".footer-bottom"
-    // "#barter-city .map-header h2", // Temporarily disabled for diagnostic
-    // "#barter-city .map-container"
 ];
 
 revealElements.forEach(selector => {
@@ -211,115 +209,23 @@ gsap.from(".card-large, .card-small", {
     ease: "power3.out"
 });
 
-// --- Barter City Map Logic ---
-const industriesData = [
-    {
-        id: "automobile",
-        title: "Automobile",
-        description: "Automobile brands leverage barter to maximize visibility and expand market reach without heavy cash expenditure. Through strategic media exchange, brands promote vehicles and accessories across high-impact platforms.",
-        barterIncludes: ["Two-wheelers and bicycles", "Batteries and accessories", "Auto components"],
-        mediaUtilized: ["Print", "Outdoor", "Television", "Digital"]
-    },
-    {
-        id: "fmcg",
-        title: "FMCG",
-        description: "Fast-moving consumer goods companies use barter to rapidly scale brand awareness and penetrate new markets by exchanging products for targeted advertising solutions.",
-        barterIncludes: ["Food and beverages", "Personal care products", "Household essentials"],
-        mediaUtilized: ["Print", "Radio", "Digital", "Outdoor"]
-    },
-    {
-        id: "lifestyle",
-        title: "Lifestyle & Clothing",
-        description: "Fashion and lifestyle brands benefit from barter by showcasing their collections through premium media placements, increasing brand recall while optimizing marketing spend.",
-        barterIncludes: ["Apparel", "Footwear", "Accessories"],
-        mediaUtilized: ["Print", "Digital", "Outdoor"]
-    },
-    {
-        id: "consumer-durables",
-        title: "Consumer Durables",
-        description: "Consumer durable brands exchange high-value products for advertising inventory, ensuring sustained brand visibility across mass media platforms.",
-        barterIncludes: ["Electronics", "Home appliances", "Gadgets"],
-        mediaUtilized: ["Print", "Television", "Digital", "Outdoor"]
-    },
-    {
-        id: "media",
-        title: "Media Networks",
-        description: "Media houses collaborate through barter by exchanging advertising inventory with brands, optimizing unsold space and increasing cross-promotional opportunities.",
-        barterIncludes: ["Ad slots", "Print inventory", "Outdoor media"],
-        mediaUtilized: ["Television", "Print", "Digital"]
-    },
-    {
-        id: "hospitality",
-        title: "Hospitality & Gaming",
-        description: "Hospitality and gaming brands use barter partnerships to enhance brand presence by trading services and experiences for extensive promotional exposure.",
-        barterIncludes: ["Hotel stays", "Food & beverages", "Gaming services"],
-        mediaUtilized: ["Print", "Digital", "Outdoor"]
-    }
-];
+// --- Eyes Follow Math (Supports multiple eye groups) ---
+window.addEventListener("mousemove", (e) => {
+    let mouseX = e.clientX;
+    let mouseY = e.clientY;
 
-function initMapInteractivity() {
-    const pins = document.querySelectorAll('.pin');
+    document.querySelectorAll(".eye").forEach(eye => {
+        let eyeRect = eye.getBoundingClientRect();
+        let eyeCenterX = eyeRect.left + eyeRect.width / 2;
+        let eyeCenterY = eyeRect.top + eyeRect.height / 2;
 
-    pins.forEach(pin => {
-        pin.addEventListener('click', (e) => {
-            const industryId = pin.getAttribute('data-industry');
-            const data = industriesData.find(i => i.id === industryId);
-            showIndustryCard(data);
-        });
+        let deltaX = mouseX - eyeCenterX;
+        let deltaY = mouseY - eyeCenterY;
+
+        let angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
+        let line = eye.querySelector(".line");
+        if (line) {
+            line.style.transform = `translate(-50%, -50%) rotate(${angle - 180}deg)`;
+        }
     });
-}
-
-function showIndustryCard(data) {
-    const container = document.querySelector('#industry-card-container');
-
-    // Clear existing card
-    container.innerHTML = '';
-
-    const card = document.createElement('div');
-    card.className = 'industry-card';
-    card.innerHTML = `
-        <div class="close-card"><i class="ri-close-line"></i></div>
-        <h3>${data.title}</h3>
-        <p>${data.description}</p>
-        <div class="card-section">
-            <h4>Barter Includes</h4>
-            <ul>${data.barterIncludes.map(item => `<li>${item}</li>`).join('')}</ul>
-        </div>
-        <div class="card-section">
-            <h4>Media Utilized</h4>
-            <ul>${data.mediaUtilized.map(item => `<li>${item}</li>`).join('')}</ul>
-        </div>
-    `;
-
-    container.appendChild(card);
-
-    // Animate card in
-    gsap.from(card, {
-        scale: 0.8,
-        opacity: 0,
-        duration: 0.5,
-        ease: "back.out(1.7)"
-    });
-
-    card.querySelector('.close-card').addEventListener('click', () => {
-        gsap.to(card, {
-            scale: 0.8,
-            opacity: 0,
-            duration: 0.3,
-            onComplete: () => card.remove()
-        });
-    });
-}
-
-// Initialize on load
-window.addEventListener('load', () => {
-    initMapInteractivity();
-
-    // Explicitly update Locomotive Scroll once assets are loaded
-    if (typeof locoScroll !== 'undefined') {
-        setTimeout(() => {
-            locoScroll.update();
-            console.log("Locomotive Scroll Updated for Barter City Map");
-        }, 500);
-    }
 });

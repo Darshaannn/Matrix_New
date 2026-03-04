@@ -15,16 +15,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=Oswald:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <!-- Main CSS with Cache Busting -->
-    <link rel="stylesheet" href="style.css?v=20260304-1509">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- DIAGNOSTIC BANNER (Delete after confirm) -->
-    <div id="diagnostic-banner"
-        style="position:fixed; top:0; left:50%; transform:translateX(-50%); background:red; color:white; padding:5px 20px; z-index:99999; font-family:sans-serif; font-weight:bold; border-radius:0 0 10px 10px; pointer-events:none;">
-        FILE VERSION: BARTER CITY (15:09)
-    </div>
 
     <!-- Red Badge (Site of the Day) -->
     <div class="w-badge">
@@ -540,50 +535,110 @@
             </div>
         </section>
 
-        <!-- Barter City Map Section -->
-        <section id="barter-city" data-scroll>
-            <div class="map-header">
-                <div class="badge">
-                    <div class="dot"></div>
-                    <span>INTERACTIVE ECOSYSTEM</span>
-                </div>
-                <h2>Explore Our Industry <span>Barter City</span></h2>
-                <p>Hover or tap on a location to discover how barter works in each industry.</p>
+        <!-- Industry Barter City Section -->
+        <section id="industry-city" data-scroll>
+            <div class="section-title">
+                <h1>Industry Barter City</h1>
+                <p>Interactive Map of our Trade Ecosystem</p>
             </div>
 
             <div class="map-container">
-                <div class="map-wrapper">
-                    <img src="NewCityMap2.png" alt="Matrix Barter City" class="map-img">
-                    <div class="pins-layer">
-                        <!-- Pins will be injected by JS or hardcoded for absolute control -->
-                        <div class="pin" data-industry="automobile" style="top: 22%; left: 34%;">
-                            <div class="pin-icon"><i class="ri-map-pin-fill"></i></div>
-                            <div class="pin-label">AUTOMOBILE</div>
-                        </div>
-                        <div class="pin" data-industry="fmcg" style="top: 28%; left: 18%;">
-                            <div class="pin-icon"><i class="ri-map-pin-fill"></i></div>
-                            <div class="pin-label">FMCG</div>
-                        </div>
-                        <div class="pin" data-industry="lifestyle" style="top: 42%; left: 63%;">
-                            <div class="pin-icon"><i class="ri-map-pin-fill"></i></div>
-                            <div class="pin-label">LIFESTYLE & CLOTHING</div>
-                        </div>
-                        <div class="pin" data-industry="consumer-durables" style="top: 70%; left: 26%;">
-                            <div class="pin-icon"><i class="ri-map-pin-fill"></i></div>
-                            <div class="pin-label">CONSUMER DURABLES</div>
-                        </div>
-                        <div class="pin" data-industry="media" style="top: 68%; left: 67%;">
-                            <div class="pin-icon"><i class="ri-map-pin-fill"></i></div>
-                            <div class="pin-label">MEDIA NETWORKS</div>
-                        </div>
-                        <div class="pin" data-industry="hospitality" style="top: 15%; left: 75%;">
-                            <div class="pin-icon"><i class="ri-map-pin-fill"></i></div>
-                            <div class="pin-label">HOSPITALITY & GAMING</div>
-                        </div>
-                    </div>
+                <img src="NewCityMap2.png" alt="Matrix Barter City" class="city-map">
 
-                    <!-- Industry Card Container -->
-                    <div id="industry-card-container"></div>
+                <!-- 🚗 Automobile Pin -->
+                <div class="map-pin" style="top: 15%; left: 32%;" data-link="industry/automobile.html">
+                    <span class="pin-icon">📍</span>
+                    <div class="industry-card">
+                        <h3>🚗 Automobile</h3>
+                        <p>Barter-based media solutions for automobile brands, dealers, and product launches. We
+                            exchange inventory for high-impact media visibility.</p>
+                        <div class="services-list">
+                            <span>• Print & outdoor media barter</span>
+                            <span>• Product launch campaigns</span>
+                            <span>• Regional dealership exposure</span>
+                        </div>
+                        <button class="learn-more">Learn More <i class="ri-arrow-right-line"></i></button>
+                    </div>
+                </div>
+
+                <!-- 📰 Print Advertising Pin -->
+                <div class="map-pin" style="top: 45%; left: 18%;" data-link="industry/print.html">
+                    <span class="pin-icon">📍</span>
+                    <div class="industry-card">
+                        <h3>📰 Print Advertising</h3>
+                        <p>Strategic barter partnerships with print publishers to maximize brand visibility through
+                            newspapers and magazines.</p>
+                        <div class="services-list">
+                            <span>• Full-page ad swaps</span>
+                            <span>• Magazine campaigns</span>
+                            <span>• Regional paper coverage</span>
+                        </div>
+                        <button class="learn-more">Learn More <i class="ri-arrow-right-line"></i></button>
+                    </div>
+                </div>
+
+                <!-- 📺 Media & Broadcasting Pin (Tall Tower) -->
+                <div class="map-pin" style="top: 15%; left: 72%;" data-link="industry/media.html">
+                    <span class="pin-icon">📍</span>
+                    <div class="industry-card">
+                        <h3>📺 Media & Broadcasting</h3>
+                        <p>High-value barter deals with TV and radio networks for nationwide and regional brand
+                            campaigns.</p>
+                        <div class="services-list">
+                            <span>• TV ad barter</span>
+                            <span>• Radio promotions</span>
+                            <span>• Prime-time slots</span>
+                        </div>
+                        <button class="learn-more">Learn More <i class="ri-arrow-right-line"></i></button>
+                    </div>
+                </div>
+
+                <!-- 👕 Lifestyle & Fashion Pin -->
+                <div class="map-pin" style="top: 25%; left: 60%;" data-link="industry/lifestyle.html">
+                    <span class="pin-icon">📍</span>
+                    <div class="industry-card">
+                        <h3>👕 Lifestyle & Fashion</h3>
+                        <p>Barter solutions for apparel and lifestyle brands to gain premium media exposure without
+                            heavy cash investment.</p>
+                        <div class="services-list">
+                            <span>• Fashion campaign barter</span>
+                            <span>• Influencer & media swaps</span>
+                            <span>• Seasonal promotions</span>
+                        </div>
+                        <button class="learn-more">Learn More <i class="ri-arrow-right-line"></i></button>
+                    </div>
+                </div>
+
+                <!-- 🏨 Hospitality & Gaming Pin -->
+                <div class="map-pin" style="top: 75%; left: 65%;" data-link="industry/hospitality.html">
+                    <span class="pin-icon">📍</span>
+                    <div class="industry-card">
+                        <h3>🏨 Hospitality & Gaming</h3>
+                        <p>Targeted barter campaigns for hotels, resorts, and gaming brands using media exchange
+                            strategies.</p>
+                        <div class="services-list">
+                            <span>• Hotel promotion barter</span>
+                            <span>• Resort media swaps</span>
+                            <span>• Gaming visibility campaigns</span>
+                        </div>
+                        <button class="learn-more">Learn More <i class="ri-arrow-right-line"></i></button>
+                    </div>
+                </div>
+
+                <!-- 🛍 FMCG Pin -->
+                <div class="map-pin" style="top: 22%; left: 20%;" data-link="industry/fmcg.html">
+                    <span class="pin-icon">📍</span>
+                    <div class="industry-card">
+                        <h3>🛍 FMCG</h3>
+                        <p>High-reach barter campaigns for fast-moving consumer goods brands using print, digital, and
+                            outdoor media.</p>
+                        <div class="services-list">
+                            <span>• Retail visibility barter</span>
+                            <span>• Consumer launch barter</span>
+                            <span>• Mass media exposure</span>
+                        </div>
+                        <button class="learn-more">Learn More <i class="ri-arrow-right-line"></i></button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -639,8 +694,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
 
-    <!-- Main JS with Cache Busting -->
-    <script src="script.js?v=20260304-1509"></script>
+    <!-- Main JS -->
+    <script src="script.js"></script>
 </body>
 
 </html>
