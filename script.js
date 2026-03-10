@@ -31,6 +31,16 @@ ScrollTrigger.scrollerProxy("#main", {
 
 ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 
+// --- Navbar Color Toggle Logic ---
+ScrollTrigger.create({
+    trigger: "#barter-services",
+    endTrigger: "#ready",
+    start: "top 5%",
+    end: "bottom 5%",
+    scroller: "#main",
+    toggleClass: { targets: "#nav", className: "dark-nav" },
+});
+
 
 // --- Cursor Logic ---
 function initCursor() {
@@ -52,12 +62,19 @@ function initCursor() {
     const interactables = document.querySelectorAll("a, button, .btn, .icon, .read-more-btn, .card-btn, .tag, .map-pin");
     interactables.forEach(item => {
         item.addEventListener("mouseenter", () => {
-            cursor.classList.add("view-active"); // Custom class for view scaling
-            const textEl = cursor.querySelector(".cursor-text");
-            if (textEl) textEl.textContent = "VIEW";
+            const isNav = item.closest("#nav");
+
+            if (isNav) {
+                cursor.classList.add("active"); // Just a standard small expansion, no text
+            } else {
+                cursor.classList.add("view-active"); // Custom class for view scaling
+                const textEl = cursor.querySelector(".cursor-text");
+                if (textEl) textEl.textContent = "VIEW";
+            }
         });
+
         item.addEventListener("mouseleave", () => {
-            cursor.classList.remove("view-active");
+            cursor.classList.remove("active", "view-active");
             const textEl = cursor.querySelector(".cursor-text");
             if (textEl) textEl.textContent = "";
         });
