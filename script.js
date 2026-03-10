@@ -36,24 +36,30 @@ ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 function initCursor() {
     const cursor = document.querySelector("#cursor");
 
+    // Auto-center cursor element accurately using GSAP so it handles width transitions safely
+    gsap.set(cursor, { xPercent: -50, yPercent: -50 });
+
     window.addEventListener("mousemove", (e) => {
-        // We adjust x and y to align center of cursor
         gsap.to(cursor, {
-            x: e.clientX - cursor.offsetWidth / 2,
-            y: e.clientY - cursor.offsetHeight / 2,
+            x: e.clientX,
+            y: e.clientY,
             duration: 0.1,
             ease: "power2.out"
         });
     });
 
-    // Hover scale effect for links and buttons
-    const interactables = document.querySelectorAll("a, .btn, .icon, .hero-inline-image, .read-more-btn, .image-content, .card-btn, .tag");
+    // Hover scale effect for links and buttons to show 'View'
+    const interactables = document.querySelectorAll("a, button, .btn, .icon, .read-more-btn, .card-btn, .tag, .map-pin");
     interactables.forEach(item => {
         item.addEventListener("mouseenter", () => {
-            cursor.classList.add("active");
+            cursor.classList.add("view-active"); // Custom class for view scaling
+            const textEl = cursor.querySelector(".cursor-text");
+            if (textEl) textEl.textContent = "VIEW";
         });
         item.addEventListener("mouseleave", () => {
-            cursor.classList.remove("active");
+            cursor.classList.remove("view-active");
+            const textEl = cursor.querySelector(".cursor-text");
+            if (textEl) textEl.textContent = "";
         });
     });
 }
@@ -81,128 +87,55 @@ gsap.to(".marque-text h1", {
     ease: "none",
 });
 
-// --- Entry Animations ---
 function loaderAnimation() {
     const tl = gsap.timeline();
 
-    // Animate the image width in the hero
-    tl.to(".hero-inline-image", {
-        width: "9vw",
-        duration: 1,
-        ease: "power4.out",
-        delay: 0.2
-    }, "start");
-
-    // Text reveal
-    tl.from(".hero-line h1", {
-        y: "100%",
+    tl.from(".hero-title", {
+        y: 100,
         opacity: 0,
-        duration: 1,
+        duration: 1.2,
         ease: "power4.out",
-        stagger: 0.1
-    }, "start");
+        delay: 0.5
+    });
 
-    tl.to(".hero-img-box", {
-        scale: 1,
-        opacity: 1,
-        duration: 0.8,
-        ease: "back.out(1.7)",
-        stagger: 0.05
-    }, "start+=0.3");
-
-    tl.from(".hero-footer", {
+    tl.from(".hero-description", {
         y: 50,
         opacity: 0,
         duration: 1,
-        ease: "power3.out",
-        delay: 0.2
-    }, "start");
+        ease: "power3.out"
+    }, "-=0.8");
+
+    tl.from(".stat-badge", {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "back.out(1.7)"
+    }, "-=0.6");
+
+    tl.from(".hero-btns", {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power4.out"
+    }, "-=0.5");
 }
 
-window.addEventListener("load", () => {
-    loaderAnimation();
-    setTimeout(() => {
-        locoScroll.update();
-        ScrollTrigger.refresh();
-        console.log("LocoScroll & ScrollTrigger Refreshed");
-    }, 1000);
-});
+// --- Hero Slider Logic ---
+function initHeroSlider() {
+    const slides = document.querySelectorAll(".hero-slide");
+    if (slides.length === 0) return;
 
-// --- Universal Scroll To Reveal Logic ---
-// 1. Massive Slide-up explicitly for "WE ARE OCHI" section (Scroll-driven)
-gsap.from(".marque-text", {
-    scrollTrigger: {
-        trigger: "#marquee",
-        scroller: "#main",
-        start: "top 95%",
-        end: "top 45%",
-        scrub: 2 // 2-second smoothing tied directly to the scroll position
-    },
-    y: 150,
-    opacity: 0,
-    ease: "none" // Let the scrolling dictate the easing
-});
+    let currentSlide = 0;
 
-const revealElements = [
-    ".about-top h2",
-    ".about-middle .column",
-    ".about-bottom .text-content",
-    ".about-bottom .image-content",
-    ".projects-header h2",
-    ".reviews-header h2",
-    ".review-row",
-    ".why-header h1",
-    ".why-item",
-    ".ready-text h1",
-    ".ready-btn-container",
-    ".footer-left h1",
-    ".footer-right h1",
-    ".footer-info",
-    ".footer-bottom"
-];
+    function nextSlide() {
+        slides[currentSlide].classList.remove("active");
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add("active");
+    }
 
-revealElements.forEach(selector => {
-    gsap.utils.toArray(selector).forEach(elem => {
-        gsap.from(elem, {
-            scrollTrigger: {
-                trigger: elem,
-                scroller: "#main",
-                start: "top 85%",
-            },
-            y: 50,
-            opacity: 0,
-            duration: 1,
-            ease: "power3.out"
-        });
-    });
-});
-
-// Staggered reveal for Cards (Projects and bottom cards)
-gsap.from(".card-wrapper", {
-    scrollTrigger: {
-        trigger: ".cards-container",
-        scroller: "#main",
-        start: "top 80%"
-    },
-    y: 100,
-    opacity: 0,
-    duration: 1,
-    stagger: 0.2,
-    ease: "power3.out"
-});
-
-gsap.from(".card-large, .card-small", {
-    scrollTrigger: {
-        trigger: "#cards",
-        scroller: "#main",
-        start: "top 70%"
-    },
-    y: 50,
-    opacity: 0,
-    duration: 1,
-    stagger: 0.2,
-    ease: "power3.out"
-});
+    setInterval(nextSlide, 5000);
+}
 
 // --- Industry City Interactions ---
 function initIndustryCity() {
@@ -233,13 +166,6 @@ function initEyeTracking() {
         let mouseX = e.clientX;
         let mouseY = e.clientY;
 
-        let deltaX = mouseX - window.innerWidth / 2;
-        let deltaY = mouseY - window.innerHeight / 2;
-
-        var angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
-
-        // This works for simple cases, but for multiple eyes across the page,
-        // it's better to calculate relative to each eye center.
         document.querySelectorAll(".eye .line").forEach(line => {
             // Get eye center to be more precise
             const rect = line.closest('.eye').getBoundingClientRect();
@@ -259,17 +185,50 @@ function initEyeTracking() {
     });
 }
 
-// Global Initialize
+// --- Navigation Scroll Logic ---
+function initNavScroll() {
+    document.querySelectorAll('#nav .links a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+
+            // Allow default behavior for external links or if not anchor
+            if (!targetId.startsWith('#')) return;
+
+            e.preventDefault();
+
+            if (targetId !== '#') {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    locoScroll.scrollTo(targetElement, {
+                        offset: -50, // Slight offset for nav bar space
+                        duration: 1000,
+                        easing: [0.25, 0.0, 0.35, 1.0]
+                    });
+                }
+            } else {
+                // Scroll to top if href is just '#'
+                locoScroll.scrollTo(0, {
+                    duration: 1000,
+                    easing: [0.25, 0.0, 0.35, 1.0]
+                });
+            }
+        });
+    });
+}
+
+// --- Global Initialize ---
 window.addEventListener("load", function () {
     // Refresh Locomotive and ScrollTrigger first
     setTimeout(() => {
         locoScroll.update();
         ScrollTrigger.refresh();
+        console.log("LocoScroll & ScrollTrigger Refreshed");
     }, 500);
 
     loaderAnimation();
     initCursor();
     initIndustryCity();
     initEyeTracking();
-    initHeroHover();
+    initHeroSlider();
+    initNavScroll();
 });

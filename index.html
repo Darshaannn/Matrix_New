@@ -13,21 +13,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=Oswald:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=Oswald:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
         rel="stylesheet">
     <!-- Main CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=19">
 </head>
 
 <body>
 
-    <!-- Red Badge (Site of the Day) -->
-    <div class="w-badge">
-        <div class="w-badge-inner">
-            <span>W.</span>
-            <p>Site of the Day</p>
-        </div>
-    </div>
+
 
 
     <!-- Custom Cursor -->
@@ -38,56 +32,54 @@
     <!-- Navigation -->
     <nav id="nav">
         <div class="logo">
-            <span class="ochi-logo-text">ochi</span>
+            <span class="matrix-logo">M A T R I X</span>
         </div>
         <div class="links">
-            <a href="#">Services</a>
-            <a href="#">Our work</a>
-            <a href="#">About us</a>
-            <a href="#">Insights</a>
-            <a href="#" class="contact-link">Contact us</a>
+            <a href="#hero">HOME</a>
+            <a href="#why-barter">WHY BARTER</a>
+            <a href="#barter-services">CAPABILITIES</a>
+            <a href="#projects">CAMPAIGNS</a>
+            <a href="#trusted">CLIENTS</a>
+            <a href="#footer" class="contact-link">CONTACT</a>
         </div>
     </nav>
 
     <div id="main" data-scroll-container>
 
-        <!-- Hero Section -->
+        <!-- Hero Section with Background Slider -->
         <section id="hero" data-scroll data-scroll-speed="-0.5">
+            <div class="hero-slider">
+                <div class="hero-slide active" style="background-image: url('Hero%20slider%201.jpg');"></div>
+                <div class="hero-slide" style="background-image: url('Hero%20slider%202.jpg');"></div>
+                <div class="hero-slide" style="background-image: url('Hero%20slider%203.jpg');"></div>
+            </div>
+            <div class="hero-overlay"></div>
             <div class="hero-content">
-                <div class="hero-text-container">
-                    <div class="hero-line">
-                        <h1>WE CREATE</h1>
-                        <div class="hero-box-group">
-                            <div class="hero-img-box"><img src="hero_1.png" alt=""></div>
-                            <div class="hero-img-box"><img src="hero_2.png" alt=""></div>
-                            <div class="hero-img-box"><img src="hero_3.png" alt=""></div>
-                        </div>
+                <h1 class="hero-title">
+                    Transform Your Products Into <br>
+                    <span class="gradient-text">Powerful Advertising</span>
+                </h1>
+                <p class="hero-description">
+                    We are a leading Barter & Media Exchange Agency helping brands convert products and unsold inventory
+                    into nationwide advertising across Print, TV, OTT, Outdoor, Cinema, Radio & Digital platforms.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-badge">
+                        <i class="ri-checkbox-circle-fill"></i>
+                        <span>500+ Brand Partnerships</span>
                     </div>
-                    <div class="hero-line has-image">
-                        <div class="hero-inline-image"></div>
-                        <h1>EYE-OPENING</h1>
-                        <div class="hero-box-group">
-                            <div class="hero-img-box"><img src="hero_4.png" alt=""></div>
-                            <div class="hero-img-box"><img src="hero_5.png" alt=""></div>
-                        </div>
+                    <div class="stat-badge">
+                        <i class="ri-checkbox-circle-fill"></i>
+                        <span>₹1000+ Cr Barter Value Executed</span>
                     </div>
-                    <div class="hero-line">
-                        <h1>PRESENTATIONS</h1>
-                        <div class="hero-box-group">
-                            <div class="hero-img-box"><img src="hero_6.png" alt=""></div>
-                        </div>
+                    <div class="stat-badge">
+                        <i class="ri-checkbox-circle-fill"></i>
+                        <span>Pan-India Media Network</span>
                     </div>
                 </div>
-            </div>
-
-            <div class="hero-footer">
-                <p>Presentation and storytelling agency</p>
-                <p>For innovation teams and global brands</p>
-                <div class="start-project">
-                    <div class="btn">Start the project</div>
-                    <div class="icon">
-                        <i class="ri-arrow-right-up-line"></i>
-                    </div>
+                <div class="hero-btns">
+                    <button class="btn-orange">Request Barter Proposal <i class="ri-arrow-right-line"></i></button>
+                    <button class="btn-outline">View Case Studies</button>
                 </div>
             </div>
         </section>
@@ -102,7 +94,7 @@
 
         <!-- About Section -->
         <section id="about" data-scroll>
-            <div class="about-top section-reveal">
+            <div class="about-top">
                 <h2>Matrix Solutions is one of the leading enterprises in <span class="underline">Corporate Barter
                         Exchange & Trade Network servicing.</span></h2>
             </div>
@@ -125,23 +117,19 @@
                 </div>
             </div>
 
-            <div class="about-bottom section-reveal">
+            <div class="about-bottom">
                 <div class="text-content">
                     <h1>Our approach:</h1>
                     <button class="read-more-btn">
                         READ MORE <div class="dot"></div>
                     </button>
                 </div>
-                <div class="image-content">
-                    <img src="https://ochi.design/wp-content/uploads/2022/05/Homepage-Photo-663x469.jpg"
-                        alt="About Ochi">
-                </div>
             </div>
         </section>
 
         <!-- Why Barter Section -->
         <section id="why-barter" data-scroll>
-            <div class="why-header section-reveal">
+            <div class="why-header">
                 <h1>WHY BARTER?</h1>
             </div>
             <div class="why-grid">
@@ -170,7 +158,7 @@
 
         <!-- Services Section (from Slide 16) -->
         <section id="barter-services" data-scroll>
-            <div class="services-header section-reveal">
+            <div class="services-header">
                 <h2>Our core sectors</h2>
             </div>
             <div class="services-columns">
@@ -203,8 +191,20 @@
                 <img src="NewCityMap2.png" alt="Matrix Barter City" class="city-map">
 
                 <!-- 🚗 Automobile Pin -->
-                <div class="map-pin" style="top: 15%; left: 32%;" data-link="industry/automobile.html">
-                    <span class="pin-icon">📍</span>
+                <div class="map-pin" style="top: 15%; left: 32%; --pin-color: #a855f7;"
+                    data-link="industry/automobile.html">
+                    <div class="glass-pin">
+                        <div class="glow-dot">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 25"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-map-pin">
+                                <path
+                                    d="M20 9c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 19.193 4 14 4 9a8 8 0 0 1 16 0" />
+                                <circle cx="12" cy="9" r="3" />
+                                <ellipse cx="12" cy="22" rx="8" ry="2" />
+                            </svg>
+                        </div>
+                    </div>
                     <div class="industry-card">
                         <h3>🚗 Automobile</h3>
                         <p>Barter-based media solutions for automobile brands, dealers, and product launches. We
@@ -219,8 +219,19 @@
                 </div>
 
                 <!-- 📰 Print Advertising Pin -->
-                <div class="map-pin" style="top: 45%; left: 18%;" data-link="industry/print.html">
-                    <span class="pin-icon">📍</span>
+                <div class="map-pin" style="top: 45%; left: 18%; --pin-color: #06b6d4;" data-link="industry/print.html">
+                    <div class="glass-pin">
+                        <div class="glow-dot">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 25"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-map-pin">
+                                <path
+                                    d="M20 9c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 19.193 4 14 4 9a8 8 0 0 1 16 0" />
+                                <circle cx="12" cy="9" r="3" />
+                                <ellipse cx="12" cy="22" rx="8" ry="2" />
+                            </svg>
+                        </div>
+                    </div>
                     <div class="industry-card">
                         <h3>📰 Print Advertising</h3>
                         <p>Strategic barter partnerships with print publishers to maximize brand visibility through
@@ -235,8 +246,19 @@
                 </div>
 
                 <!-- 📺 Media & Broadcasting Pin (Tall Tower) -->
-                <div class="map-pin" style="top: 15%; left: 72%;" data-link="industry/media.html">
-                    <span class="pin-icon">📍</span>
+                <div class="map-pin" style="top: 15%; left: 72%; --pin-color: #22c55e;" data-link="industry/media.html">
+                    <div class="glass-pin">
+                        <div class="glow-dot">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 25"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-map-pin">
+                                <path
+                                    d="M20 9c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 19.193 4 14 4 9a8 8 0 0 1 16 0" />
+                                <circle cx="12" cy="9" r="3" />
+                                <ellipse cx="12" cy="22" rx="8" ry="2" />
+                            </svg>
+                        </div>
+                    </div>
                     <div class="industry-card">
                         <h3>📺 Media & Broadcasting</h3>
                         <p>High-value barter deals with TV and radio networks for nationwide and regional brand
@@ -251,8 +273,20 @@
                 </div>
 
                 <!-- 👕 Lifestyle & Fashion Pin -->
-                <div class="map-pin" style="top: 25%; left: 60%;" data-link="industry/lifestyle.html">
-                    <span class="pin-icon">📍</span>
+                <div class="map-pin" style="top: 25%; left: 60%; --pin-color: #eab308;"
+                    data-link="industry/lifestyle.html">
+                    <div class="glass-pin">
+                        <div class="glow-dot">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 25"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-map-pin">
+                                <path
+                                    d="M20 9c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 19.193 4 14 4 9a8 8 0 0 1 16 0" />
+                                <circle cx="12" cy="9" r="3" />
+                                <ellipse cx="12" cy="22" rx="8" ry="2" />
+                            </svg>
+                        </div>
+                    </div>
                     <div class="industry-card">
                         <h3>👕 Lifestyle & Fashion</h3>
                         <p>Barter solutions for apparel and lifestyle brands to gain premium media exposure without
@@ -267,8 +301,20 @@
                 </div>
 
                 <!-- 🏨 Hospitality & Gaming Pin -->
-                <div class="map-pin" style="top: 75%; left: 65%;" data-link="industry/hospitality.html">
-                    <span class="pin-icon">📍</span>
+                <div class="map-pin" style="top: 75%; left: 65%; --pin-color: #ec4899;"
+                    data-link="industry/hospitality.html">
+                    <div class="glass-pin">
+                        <div class="glow-dot">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 25"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-map-pin">
+                                <path
+                                    d="M20 9c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 19.193 4 14 4 9a8 8 0 0 1 16 0" />
+                                <circle cx="12" cy="9" r="3" />
+                                <ellipse cx="12" cy="22" rx="8" ry="2" />
+                            </svg>
+                        </div>
+                    </div>
                     <div class="industry-card">
                         <h3>🏨 Hospitality & Gaming</h3>
                         <p>Targeted barter campaigns for hotels, resorts, and gaming brands using media exchange
@@ -283,8 +329,19 @@
                 </div>
 
                 <!-- 🛍 FMCG Pin -->
-                <div class="map-pin" style="top: 22%; left: 20%;" data-link="industry/fmcg.html">
-                    <span class="pin-icon">📍</span>
+                <div class="map-pin" style="top: 22%; left: 20%; --pin-color: #3b82f6;" data-link="industry/fmcg.html">
+                    <div class="glass-pin">
+                        <div class="glow-dot">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 25"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-map-pin">
+                                <path
+                                    d="M20 9c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 19.193 4 14 4 9a8 8 0 0 1 16 0" />
+                                <circle cx="12" cy="9" r="3" />
+                                <ellipse cx="12" cy="22" rx="8" ry="2" />
+                            </svg>
+                        </div>
+                    </div>
                     <div class="industry-card">
                         <h3>🛍 FMCG</h3>
                         <p>High-reach barter campaigns for fast-moving consumer goods brands using print, digital, and
@@ -561,86 +618,7 @@
                     </div>
                     <div class="rev-col col-read"><button class="read-btn">READ</button></div>
                 </div>
-                <div class="review-row">
-                    <div class="rev-col col-client">
-                        <p>Planetly</p>
-                    </div>
-                    <div class="rev-col col-services"></div>
-                    <div class="rev-col col-person">
-                        <p>Nina Walloch</p>
-                    </div>
-                    <div class="rev-col col-read"><button class="read-btn">READ</button></div>
-                </div>
-                <div class="review-row">
-                    <div class="rev-col col-client">
-                        <p>Workiz Easy</p>
-                    </div>
-                    <div class="rev-col col-services"></div>
-                    <div class="rev-col col-person">
-                        <p>Tomer Levy</p>
-                    </div>
-                    <div class="rev-col col-read"><button class="read-btn">READ</button></div>
-                </div>
-                <div class="review-row">
-                    <div class="rev-col col-client">
-                        <p>Premium Blend</p>
-                    </div>
-                    <div class="rev-col col-services"></div>
-                    <div class="rev-col col-person">
-                        <p>Ellen Kim</p>
-                    </div>
-                    <div class="rev-col col-read"><button class="read-btn">READ</button></div>
-                </div>
-                <div class="review-row">
-                    <div class="rev-col col-client">
-                        <p>Hypercare Systems</p>
-                    </div>
-                    <div class="rev-col col-services"></div>
-                    <div class="rev-col col-person">
-                        <p>Brendan Goss</p>
-                    </div>
-                    <div class="rev-col col-read"><button class="read-btn">READ</button></div>
-                </div>
-                <div class="review-row">
-                    <div class="rev-col col-client">
-                        <p>Officevibe</p>
-                    </div>
-                    <div class="rev-col col-services"></div>
-                    <div class="rev-col col-person">
-                        <p>Raff Labrie</p>
-                    </div>
-                    <div class="rev-col col-read"><button class="read-btn">READ</button></div>
-                </div>
-                <div class="review-row">
-                    <div class="rev-col col-client">
-                        <p>Orderlion</p>
-                    </div>
-                    <div class="rev-col col-services"></div>
-                    <div class="rev-col col-person">
-                        <p>Stefan Strohmer</p>
-                    </div>
-                    <div class="rev-col col-read"><button class="read-btn">READ</button></div>
-                </div>
-                <div class="review-row">
-                    <div class="rev-col col-client">
-                        <p>Black Book</p>
-                    </div>
-                    <div class="rev-col col-services"></div>
-                    <div class="rev-col col-person">
-                        <p>Jaci Smith</p>
-                    </div>
-                    <div class="rev-col col-read"><button class="read-btn">READ</button></div>
-                </div>
-                <div class="review-row">
-                    <div class="rev-col col-client">
-                        <p>Trawa Energy</p>
-                    </div>
-                    <div class="rev-col col-services"></div>
-                    <div class="rev-col col-person">
-                        <p>David Budde</p>
-                    </div>
-                    <div class="rev-col col-read"><button class="read-btn">READ</button></div>
-                </div>
+
             </div>
         </section>
 
@@ -669,9 +647,8 @@
         <!-- Ready To Start Section -->
         <section id="ready" data-scroll data-scroll-speed="-0.1">
             <div class="ready-text">
-                <h1>READY</h1>
-                <h1>TO START</h1>
-                <h1>THE PROJECT?</h1>
+                <h1>WANT TO</h1>
+                <h1>REACH US?</h1>
             </div>
 
             <div class="ready-eyes">
@@ -698,45 +675,46 @@
 
         <!-- Footer Section -->
         <footer id="footer" data-scroll>
-            <div class="footer-left">
-                <h1>EYE-</h1>
-                <h1>OPENING</h1>
-            </div>
-            <div class="footer-right">
-                <h1>PRESENTATIONS</h1>
-
-                <div class="footer-info">
-                    <div class="socials">
-                        <p>S:</p>
-                        <a href="#">Instagram</a>
-                        <a href="#">Behance</a>
-                        <a href="#">Facebook</a>
-                        <a href="#">LinkedIn</a>
-                    </div>
-                    <div class="address">
-                        <p>L:</p>
-                        <p>202-1965 W 4th Ave<br>Vancouver, Canada</p>
-                        <br>
-                        <p>30 Chukarina St<br>Lviv, Ukraine</p>
-                    </div>
-                    <div class="contact-info">
-                        <p>E:</p>
-                        <a href="mailto:info@matrixsolutions.in">info@matrixsolutions.in</a>
-                    </div>
-                    <div class="menu">
-                        <p>M:</p>
-                        <a href="#">Home</a>
-                        <a href="#">Services</a>
-                        <a href="#">Our work</a>
-                        <a href="#">About us</a>
-                        <a href="#">Insights</a>
-                        <a href="#">Contact us</a>
-                    </div>
+            <div class="footer-cta">
+                <h2>Ready to take your brand to the next level?</h2>
+                <div class="cta-btns">
+                    <a href="#" class="cta-large">
+                        <span class="italic-serif">Let's Work Together</span>
+                    </a>
+                    <a href="#" class="cta-circle">
+                        <i class="ri-arrow-right-line"></i>
+                    </a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; Matrix Solutions 2024. All Rights Reserved.</p>
-                <p>Website by Obys / Cloned for Demo</p>
+
+            <div class="footer-bottom-grid">
+                <div class="footer-col-1">
+                    <p class="about-text">Matrix Solutions Worldwide Private Limited is a premium media barter agency
+                        connecting corporate inventory with national media power.</p>
+                    <p class="copyright">© 2026 Matrix Solutions Worldwide. All rights reserved.</p>
+                </div>
+                <div class="footer-col-2">
+                    <a href="#" class="start-btn-outline">Start a project</a>
+                    <div class="contact-details">
+                        <span>Or get in touch via</span>
+                        <a href="mailto:solutions@vanguardmatrix.com"
+                            class="footer-email">solutions@vanguardmatrix.com</a>
+                    </div>
+                </div>
+                <div class="footer-col-3">
+                    <div class="footer-links">
+                        <a href="#">Home</a>
+                        <a href="#">Capabilities</a>
+                        <a href="#">About</a>
+                    </div>
+                </div>
+                <div class="footer-col-4">
+                    <div class="footer-links">
+                        <a href="#">Linkedin</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
             </div>
         </footer>
 
@@ -748,7 +726,7 @@
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
 
     <!-- Main JS -->
-    <script src="script.js"></script>
+    <script src="script.js?v=19"></script>
 </body>
 
 </html>
